@@ -11,6 +11,33 @@ int dist(double x1,double y1, double x2, double y2) {
 	tem[0]=sqrt(tem[0]);
 	return tem[0];
 	}
+struct Tri{
+double x[3];
+double y[3];
+double mNum[3];
+double mDem[3];
+};
+double TriArea(){
+    Tri InTri;
+for(int i=0;i<3;i++){
+
+    cout<<"X"<<i+1<<": ";
+    cin>>InTri.x[i];
+    cout<<"\n";
+    cout<<"Y"<<i+1<<": ";
+    cin>>InTri.y[i];
+    cout<<"\n";
+
+}
+for(int i=0;i<3;i++){
+int n = i+1;
+if (n>2){n=0;}
+InTri.mNum[i]=InTri.y[n]-InTri.y[i];
+InTri.mDem[i]=InTri.x[n]-InTri.x[i];
+
+}
+return InTri.x[0];
+}
 void test(int ch=0){
 	switch (ch) {
   case 0:
@@ -19,6 +46,7 @@ void test(int ch=0){
 		cout<<dist(in[0],in[1],in[2],in[3])<<endl;
     break;
   case 1:
+      cout<<TriArea()<<endl;
     cout<<1<<endl;
     break;
   case 2:
@@ -34,7 +62,7 @@ int main() {
 	int ch=0;
 	cout<<"0: Distace  1: Area of Triangle  2: undefined  3:  undefined"<<endl;
 	cin >> ch;
-	if (!cin){t=0;}
+	if (!cin){t=0;for(int i=0;i<100;i++){cout<<"\b";}}
 	if (t){
 	cout<<"____________"<<endl;
 	test(ch);
