@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1585093826 source:c:\users\mener\onedrive\desktop\junk\new folder (2)\c++\external function and class test\main.cpp
+	<iostream>
+	"MattMovie.h"
+	<time.h>
+	<fstream>
+
+1585102750 c:\users\mener\onedrive\desktop\junk\new folder (2)\c++\external function and class test\mattmovie.h
+	<string>
+
+1585110698 source:c:\users\mener\onedrive\desktop\junk\new folder (2)\c++\external function and class test\mattmovie.cpp
+	"MattMovie.h"
+	<string>
+	<iostream>
+	<fstream>
+
