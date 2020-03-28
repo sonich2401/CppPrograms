@@ -1,5 +1,4 @@
 #include <iostream>
-#include <math.h>
 #include "Func.h"
 using namespace std;
 bool t = 1;
@@ -13,6 +12,7 @@ int main() {
 	cout<<"____________"<<endl;
 	test(ch);
 	cout << "**********"<<endl;
+	cout<<endl<<endl<<endl<<endl;
 	}
     }
 	return 0;

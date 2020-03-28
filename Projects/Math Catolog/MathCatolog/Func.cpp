@@ -1,5 +1,6 @@
-#include <iostream>
+﻿#include <iostream>
 #include "Struct.h"
+#include <math.h>
 using namespace std;
 int dist(double x1,double y1, double x2, double y2) {
 	double tem[2];
@@ -33,13 +34,13 @@ InTri.mNum[0][i]=InTri.y[n]-InTri.y[i];
 InTri.mDem[0][i]=InTri.x[n]-InTri.x[i];
 InTri.mNum[1][i]=(InTri.x[n]-InTri.x[i])*-1;
 InTri.mDem[1][i]=InTri.y[n]-InTri.y[i];
-
 }
-//double b = InTri.y[0]+(InTri.x[0]*(InTri.mNum[1][1]/InTri.mDem[1][1]))
 return InTri.x[0];
 }
 
-
+int rot(double x, double y,double deg){
+const double mPi = 3.14/180
+}
 
 
 	void test(int ch=0){

@@ -1,2 +1,3 @@
-#include "Func.cpp"
+﻿#include "Func.cpp"
 int dist(double x1,double y1, double x2, double y2);
+void test(int ch);

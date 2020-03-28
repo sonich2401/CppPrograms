@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1585377833 source:c:\users\mener\onedrive\documents\github\cppprograms\projects\class classification\class classification\main.cpp
+	<iostream>
+	"student.h"
+	<string.h>
+
+1585378723 source:c:\users\mener\onedrive\documents\github\cppprograms\projects\class classification\class classification\student.cpp
+	"student.h"
+	<iostream>
+	<cmath>
+
+1585376063 c:\users\mener\onedrive\documents\github\cppprograms\projects\class classification\class classification\student.h
+	<iostream>
+	<cmath>
+
