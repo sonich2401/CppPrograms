@@ -1,0 +1,35 @@
+
+*.depend
+Projects/Class Classification/Class Classification/Class Classification.depend
+Projects/Class Classification/Class Classification/Class Classification.layout
+Projects/Class Classification/Class Classification/obj/Debug/main.o
+Projects/Class Classification/Class Classification/obj/Debug/student.o
+Projects/Graphics testing/graphics h test/graphics h test.layout
+Projects/Graphics testing/graphics h test/obj/Debug/main.o
+Projects/Graphics testing/graphics h test/obj/Release/main.o
+Projects/Graphics testing/olcTest/olcTest.cbp
+Projects/Graphics testing/olcTest/olcTest.layout
+Projects/Graphics testing/Project1/.vs/Project1/v16/.suo
+Projects/Graphics testing/Project1/.vs/Project1/v16/Browse.VC.db
+Projects/Graphics testing/Project1/Project1/Debug/Project1.log
+Projects/Graphics testing/Project1/Project1/Debug/Project1.tlog/Project1.lastbuildstate
+Projects/Graphics testing/Project1/Project1/Project1.vcxproj
+Projects/Graphics testing/Project1/Project1/Project1.vcxproj.filters
+Projects/Graphics testing/Project1/Project1/Project1.vcxproj.user
+VS/OLC TEST/.vs/OLC TEST/v16/.suo
+VS/OLC TEST/.vs/OLC TEST/v16/Browse.VC.db
+VS/OLC TEST/.vs/OLC TEST/v16/ipch/AutoPCH/ae2cc9785139f3a9/MAIN.ipch
+VS/OLC TEST/Debug/main.obj
+VS/OLC TEST/Debug/OLC TEST.ilk
+VS/OLC TEST/Debug/OLC TEST.log
+VS/OLC TEST/Debug/OLC TEST.pdb
+VS/OLC TEST/Debug/OLC TEST.tlog/CL.command.1.tlog
+VS/OLC TEST/Debug/OLC TEST.tlog/CL.read.1.tlog
+VS/OLC TEST/Debug/OLC TEST.tlog/CL.write.1.tlog
+VS/OLC TEST/Debug/OLC TEST.tlog/link.command.1.tlog
+VS/OLC TEST/Debug/OLC TEST.tlog/link.read.1.tlog
+VS/OLC TEST/Debug/OLC TEST.tlog/link.write.1.tlog
+VS/OLC TEST/Debug/OLC TEST.tlog/OLC TEST.lastbuildstate
+VS/OLC TEST/Debug/vc142.pdb
+VS/OLC TEST/OLC TEST.vcxproj.filters
+VS/OLC TEST/OLC TEST.vcxproj.user
