@@ -141,6 +141,7 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Forms.h" />
     <ClInclude Include="olcPixelGameEngine.h" />
     <ClInclude Include="sb.h" />
   </ItemGroup>

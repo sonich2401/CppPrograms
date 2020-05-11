@@ -35,13 +35,13 @@ namespace sb {
 		}
 
 		// closing output file 
-
-		// remove the original file 
-		remove(fileName);
-
-		// rename the file 
-		rename("temp.txt", fileName);
 		ofs.close();
 		is.close();
+		std::ifstream is2("temp.txt");
+		ofs.open("a.txt", std::ofstream::out);
+		while (is2.get(c))
+		{ofs << c;}
+		ofs.close();
+		is2.close();
 	}
 }

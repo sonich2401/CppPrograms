@@ -26,5 +26,8 @@
     <ClInclude Include="sb.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Forms.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
