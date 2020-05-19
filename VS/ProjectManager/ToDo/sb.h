@@ -1,47 +1,21 @@
 #pragma once
-#include <iostream>
 #include <fstream>
 #include <string>
 namespace sb {
-	std::string readline(std::string filepath, int linenum = 0) {
-		std::string lnStr;
-		std::fstream inflie;
-		inflie.open(filepath);
-		for (int i = 0; i < linenum; i++) {
-			std::getline(inflie, lnStr);
-		}
-		inflie.close();
-		return lnStr;
-	}
-	void writeLine(int lineNum, std::string text, const char fileName[]) {
+	void writeFile() {
 		std::ofstream ofs;
-		std::ifstream is(fileName);
-		ofs.open("temp.txt", std::ofstream::out);
+		std::ifstream is;
+		is.open("a.txt", std::ios::in | std::ios::binary);
+		ofs.open("temp.bin", std::ofstream::out | std::ofstream::binary);
 		char c;
-		bool st = 1;
-		int line_no = 1;
-		while (is.get(c))
-		{
-			// if a newline character 
-			if (c == '\n')
-				line_no++;
-
-			// file content not to be deleted 
-			if (line_no != lineNum) {
-				ofs << c;
-			}
-			if (line_no == lineNum && st == 1) { ofs << "\n" << text; st = 0; }
-
+		char fileBin[1024];
+		for (int i = 1; i < 1024; i++) {
+			fileBin[i] = 0;
 		}
+		is.read(fileBin, 512);
 
-		// closing output file 
+		ofs << fileBin;
 		ofs.close();
 		is.close();
-		std::ifstream is2("temp.txt");
-		ofs.open("a.txt", std::ofstream::out);
-		while (is2.get(c))
-		{ofs << c;}
-		ofs.close();
-		is2.close();
 	}
 }
