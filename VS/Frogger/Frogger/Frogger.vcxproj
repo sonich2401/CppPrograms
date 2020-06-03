@@ -141,8 +141,10 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="levels.h" />
     <ClInclude Include="olcPixelGameEngine.h" />
     <ClInclude Include="test.h" />
+    <ClInclude Include="utilFunc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

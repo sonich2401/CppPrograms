@@ -26,5 +26,11 @@
     <ClInclude Include="test.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="levels.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utilFunc.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

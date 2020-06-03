@@ -1,0 +1,15 @@
+finished:
+	projectManager.ccp & projectManager.h
+	utilFunc.h
+Room for Improvement:
+	projectManager.ccp & projectManager.h
+	sb.h
+	projectDatabase.h & projectDatbase.cpp
+	SourceHeader.h
+Not Finised
+	Source.cpp
+	SourceHeader.h
+	projectDatabase.cpp
+Notes:
+	ProjectManager.h:
+		change regionName and taskName in the region and task structs so that SourceHeader.h can have a more recource effecient/compatible structure
