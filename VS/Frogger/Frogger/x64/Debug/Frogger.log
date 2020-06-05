@@ -1,0 +1,21 @@
+﻿  Source.cpp
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\Frogger\Frogger\levels.h(25,18): error C2398: Element '1': conversion from 'float' to 'T' requires a narrowing conversion
+          with
+          [
+              T=int32_t
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\Frogger\Frogger\levels.h(25,24): error C2398: Element '2': conversion from 'float' to 'T' requires a narrowing conversion
+          with
+          [
+              T=int32_t
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\Frogger\Frogger\levels.h(25,24): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int32_t
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\Frogger\Frogger\levels.h(25,18): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int32_t
+          ]
