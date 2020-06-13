@@ -1,0 +1,227 @@
+//#include "Headers/Utility/UtilFunc.h"
+//#include "Headers/DatabaseControl/Database.h"
+//#include <iostream>
+//#include <cstdlib>
+//using std::cout;
+//using std::cin;
+//using std::endl;
+//int gamestate;
+//int input;
+//string names[5] = { "","","","","" };
+//database myDat;
+//void clearName() {
+//	names[0] = "";
+//	names[1] = "";
+//	names[2] = "";
+//	names[3] = "";
+//	names[4] = "";
+//}
+//int main() {
+//	while (1) {
+//		clearName();
+//		cout << "1. Project Edit\n2. Project Add\n3. Project Delete\n4. Region Edit\n5. Region Add\n6. Region Delete\n7. Task Edit\n8. Task Add\n9. Task Delete\n10. Search\n11. Save\n12. Save & Exit\n";
+//		cin >> gamestate;
+//		system("cls");
+//		switch (gamestate) {
+//		case 1:
+//			//Project Edit
+//			cout << "Enter Project Name to Edit\n";
+//			cin >> names[0];
+//			system("cls");
+//			cout << "Enter New Project Name\n";
+//			cin >> names[1];
+//			system("cls");
+//			cout << "Enter new Project Discription\n";
+//			cin >> names[2];
+//			system("cls");
+//			if (myDat.editProject(names[0],names[1],names[2])) {
+//				cout << "Edit Sucecess!";
+//				_sleep(1000);
+//			}
+//			else {
+//				cout << "Edit Error! No such Member!";
+//				_sleep(1000);
+//			}
+//			system("cls");
+//			break;
+//		case 2:
+//			//Project Add
+//			cout << "Enter New Project Name\n";
+//			cin >> names[1];
+//			system("cls");
+//			cout << "Enter new Project Discription\n";
+//			cin >> names[2];
+//			system("cls");
+//			myDat.addProject(names[1], names[2]);
+//			break;
+//		case 3:
+//			//Project Delete
+//			cout << "Enter Project Name to Delete\n";
+//			cin >> names[0];
+//			system("cls");
+//			if (myDat.delProject(names[0])) {
+//				cout << "Delete Sucecess!";
+//				_sleep(1000);
+//			}
+//			else {
+//				cout << "Delete Error! No such Member!";
+//				_sleep(1000);
+//			}
+//			system("cls");
+//			break;
+//				cout << "Enter Project Name to Edit\n";
+//				cin >> names[0];
+//			system("cls");
+//			cout << "Enter New Project Name\n";
+//			cin >> names[1];
+//			system("cls");
+//			cout << "Enter new Project Discription\n";
+//			cin >> names[2];
+//			system("cls");
+//			if (myDat.editProject(names[0],names[1],names[2])) {
+//				cout << "Edit Sucecess!";
+//				_sleep(1000);
+//			}
+//			else {
+//				cout << "Edit Error! No such Member!";
+//				_sleep(1000);
+//			}
+//			system("cls");
+//		case 4:
+//			//Region Edit
+//			cout << "Enter Project Name to Edit the Region\n";
+//			cin >> names[0];
+//			system("cls");
+//			cout << "Enter Region Name to Edit\n";
+//			cin >> names[1];
+//			system("cls");
+//			cout << "Enter New Region Name\n";
+//			cin >> names[2];
+//			system("cls");
+//			cout << "Enter new Region Discription\n";
+//			cin >> names[3];
+//			system("cls");
+//			if (myDat.editRegion(names[0], names[1], names[2],names[3])) {
+//				cout << "Edit Sucecess!";
+//				_sleep(1000);
+//			}
+//			else {
+//				cout << "Edit Error! No such Member!";
+//				_sleep(1000);
+//			}
+//			system("cls");
+//			break;
+//		case 5:
+//			//Region Add
+//			cout << "Enter Project Name to add Region\n";
+//			cin >> names[0];
+//			system("cls");
+//			cout << "Enter new Region Name\n";
+//			cin >> names[1];
+//			system("cls");
+//			cout << "Enter new Region Discription\n";
+//			cin >> names[2];
+//			system("cls");
+//			myDat.addRegion(names[0],names[1], names[2]);
+//			break;
+//		case 6:
+//			//Region Delete
+//			cout << "Enter Project Name to Delete Region\n";
+//			cin >> names[0];
+//			system("cls");
+//			cout << "Enter Region Name to Delete\n";
+//			cin >> names[1];
+//			system("cls");
+//			if (myDat.delRegion(names[0],names[1])) {
+//				cout << "Delete Sucecess!";
+//				_sleep(1000);
+//			}
+//			else {
+//				cout << "Delete Error! No such Member!";
+//				_sleep(1000);
+//			}
+//			system("cls");
+//			break;
+//		case 7:
+//			//Task Edit
+//			cout << "Enter Project Name to Edit the Task\n";
+//			cin >> names[0];
+//			system("cls");
+//			cout << "Enter Region Name to Edit the Task\n";
+//			cin >> names[1];
+//			system("cls");
+//			cout << "Enter Task Name\n";
+//			cin >> names[2];
+//			system("cls");
+//			cout << "Enter new Task Name\n";
+//			cin >> names[3];
+//			system("cls");
+//			cout << "Enter new Task Discription\n";
+//			cin >> names[4];
+//			system("cls");
+//			if (myDat.editTask(names[0], names[1], names[2], names[3],names[4])) {
+//				cout << "Edit Sucecess!";
+//				_sleep(1000);
+//			}
+//			else {
+//				cout << "Edit Error! No such Member!";
+//				_sleep(1000);
+//			}
+//			system("cls");
+//			break;
+//		case 8:
+//			//Task Add
+//			cout << "Enter Project Name to add Task\n";
+//			cin >> names[0];
+//			system("cls");
+//			cout << "Enter Region Name to add Task\n";
+//			cin >> names[1];
+//			system("cls");
+//			cout << "Enter new Task Name\n";
+//			cin >> names[2];
+//			system("cls");
+//			cout << "Enter new Task Discription\n";
+//			cin >> names[3];
+//			system("cls");
+//			myDat.addTask(names[0], names[1], names[2],names[3]);
+//			break;
+//		case 9:
+//			//Task Delete
+//			cout << "Enter Project Name to Delete Task\n";
+//			cin >> names[0];
+//			system("cls");
+//			cout << "Enter Region Name to Delete Task\n";
+//			cin >> names[1];
+//			system("cls");
+//			cout << "Enter Task Name to Delete Task\n";
+//			cin >> names[2];
+//			system("cls");
+//			if (myDat.delTask(names[0], names[1],names[2])) {
+//				cout << "Delete Sucecess!";
+//				_sleep(1000);
+//			}
+//			else {
+//				cout << "Delete Error! No such Member!";
+//				_sleep(1000);
+//			}
+//			system("cls");
+//			break;
+//		case 10:
+//			//Search
+//			break;
+//		case 11:
+//			//Save
+//			myDat.saveDatabase("./sav.pds");
+//			break;
+//		case 12:
+//			//Save & Exit
+//			myDat.saveDatabase("./sav.pds");
+//			return 0;
+//			break;
+//		case 13:
+//			myDat.loadDatabase("./sav.pds");
+//			break;
+//		}
+//	}
+//	return 0;
+//}

@@ -1,0 +1,10 @@
+In Source.cpp the up and down keys dont scroll the options. Check /Graphical Control Unit/DataTypes/ListDisc.h
+
+In Source.cpp the deselect functionality is screwy because the hitbox is small and misaligned
+
+In Source.cpp the hitbox for the back and next button need to be smaller on the y coords
+
+TODO
+	Add Edit Functionality
+	Add Delete Functionality
+	Add Help Section
