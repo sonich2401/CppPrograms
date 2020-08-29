@@ -150,6 +150,8 @@
     <ClInclude Include="Headers\Sprite.h" />
     <ClInclude Include="Headers\Text_to_1980.h" />
     <ClInclude Include="Math\Rotate.h" />
+    <ClInclude Include="rooms\Rooms.h" />
+    <ClInclude Include="rooms\TestRoom1.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,3 @@
+﻿  Source.cpp
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Math\Rotate.h(4,15): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  The Machine.vcxproj -> C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Debug\The Machine.exe

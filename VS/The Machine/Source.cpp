@@ -3,9 +3,11 @@
 #include "./Headers/Licence.h"
 #include "Headers/Actors.h"
 #include "Headers/Collision.h"
+#include "rooms/Rooms.h"
 #include <cstdlib>
 #include <vector>
 std::vector<AntiVirus> en;
+Room curRoom;
 class Example : public olc::PixelGameEngine
 {
 public:
@@ -17,8 +19,9 @@ public:
 public:
 	bool OnUserCreate() override
 	{
-		en.push_back(AntiVirus() = { {1000,10},{0,0} });
-		en.push_back(AntiVirus() = { {10,10},{0,0} });
+		curRoom.loadRoom<15, 15>(room::testRoom::colDat);
+		en.push_back(AntiVirus({10,10}));
+		en.push_back(AntiVirus({1000,200}));
 		return true;
 	}
 
@@ -26,8 +29,9 @@ public:
 	{
 		Clear(olc::Pixel(0, 0, 0));
 		olc::vi2d ms = {GetMouseX(),GetMouseY()};
+		this->DrawRect({ 0,0 }, { 300,300 });
 		for (unsigned int i = 0; i < en.size(); i++) {
-			en[i].gotoPoint(ms, 2);
+			en[i].noticePlayer(ms, {5,5},fElapsedTime);
 			this->FillRect(en[i].pos, {10,10}, olc::WHITE);
 			en[i].pos += en[i].vel;
 		}
@@ -42,3 +46,4 @@ int main()
 	
 	return 0;
 }
+//ok i see you now

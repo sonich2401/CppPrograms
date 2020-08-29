@@ -44,5 +44,11 @@
     <ClInclude Include="Headers\Collision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="rooms\Rooms.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rooms\TestRoom1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
