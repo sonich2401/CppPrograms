@@ -8,6 +8,9 @@
 #include <vector>
 std::vector<AntiVirus> en;
 Room curRoom;
+Player player;
+olc::vf2d Screen = {0,0};
+bool gameover = 0;
 class Example : public olc::PixelGameEngine
 {
 public:
@@ -20,20 +23,53 @@ public:
 	bool OnUserCreate() override
 	{
 		curRoom.loadRoom<15, 15>(room::testRoom::colDat);
-		en.push_back(AntiVirus({10,10}));
-		en.push_back(AntiVirus({1000,200}));
+		player.pos = { 100,100 };
+		en.push_back(AntiVirus({10,10},this));
+		en.push_back(AntiVirus({200,200},this));
 		return true;
 	}
 
 	bool OnUserUpdate(float fElapsedTime) override
 	{
 		Clear(olc::Pixel(0, 0, 0));
-		olc::vi2d ms = {GetMouseX(),GetMouseY()};
-		this->DrawRect({ 0,0 }, { 300,300 });
+		int baseSpeed = 70;
+		if (GetKey(olc::CTRL).bHeld) {
+			//player.stam.UseStamina();
+			//if (!player.stam.BelowTreshold()) {
+			//	baseSpeed = 100;
+			//	player.stam.refueling = 0;
+			//}
+			//else {
+			//	player.stam.refueling = 1;
+			//}
+			baseSpeed = 100;
+		}
+		float speed = fElapsedTime * baseSpeed;
+		if (GetKey(olc::W).bHeld) {
+			player.pos.y -= speed;
+		}
+		if (GetKey(olc::S).bHeld) {
+			player.pos.y += speed;
+		}
+		if (GetKey(olc::A).bHeld) {
+			player.pos.x -= speed;
+		}
+		if (GetKey(olc::D).bHeld) {
+			player.pos.x += speed;
+		}
+		
+		this->FillCircle(player.pos, 10, olc::CYAN);
+		olc::vi2d vSize = { 10,10 };
 		for (unsigned int i = 0; i < en.size(); i++) {
-			en[i].noticePlayer(ms, {5,5},fElapsedTime);
+			en[i].noticePlayer(player.pos, { 5,5 }, fElapsedTime);
+			if (RectInRect(en[i].pos, vSize, player.pos, { 20,20 }))
+				gameover = 1;
 			this->FillRect(en[i].pos, {10,10}, olc::WHITE);
 			en[i].pos += en[i].vel;
+		}
+		if (gameover) {
+			Clear(olc::Pixel(0, 0, 0));
+			this->DrawStringDecal({ 200,300 }, "Game Over", olc::WHITE,{5,5});
 		}
 		return true;
 	}
@@ -46,4 +82,3 @@ int main()
 	
 	return 0;
 }
-//ok i see you now

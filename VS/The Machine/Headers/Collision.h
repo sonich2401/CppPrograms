@@ -16,9 +16,55 @@ float getB(T px,T py,float s) {
 bool pointInRect(olc::vf2d point, olc::vf2d& pos, olc::vf2d& size) {
 	return (point.x >= pos.x) && (point.y >= pos.y) && (point.x <= pos.x + size.x) && (point.y <= pos.y + size.y);
 }
-bool RectInRect(olc::vf2d& pos1, olc::vf2d& size1, olc::vf2d& pos2, olc::vf2d& size2) {
+bool RectInRect(olc::vf2d& pos1, olc::vf2d size1, olc::vf2d& pos2, olc::vf2d size2) {
 	return pointInRect(pos1, pos2, size2) || pointInRect(size1 + pos1, pos2, size2) || pointInRect({ pos1.x,pos1.y + size1.y }, pos2, size2) || pointInRect({pos1.x+size1.x,pos1.y}, pos2, size2);
 }
+bool LineInRect(olc::vf2d p1, olc::vf2d p2, olc::vf2d pos, olc::vf2d size) {
+	return pointInRect(p1, pos, size) || pointInRect(p1, pos, size);
+}
+float GetDistance(olc::vf2d p1, olc::vf2d p2) {
+	return sqrt(((p2.x - p1.x) * (p2.x - p1.x)) + ((p2.y - p1.y) * (p2.y - p1.y)));
+}
+std::vector<olc::vf2d> getPoints(olc::vf2d& pos, olc::vf2d& size) {
+
+}
+//struct Room {
+//	unsigned int* colDat;
+//	unsigned int* gfxDat;
+//	unsigned int roomWidth;
+//	void deleteRoom() {
+//		delete[] colDat;
+//		delete[] gfxDat;
+//	}
+//	template <size_t w, size_t h>
+//	void loadRoom(const unsigned int var[w][h]) {
+//		roomWidth = w;
+//		colDat = new unsigned int[w * h];
+//		for (unsigned int x = 0; x < w; x++)
+//			for (unsigned int y = 0; y < h; y++)
+//				colDat[(x * w) + y] = var[x][y];
+//	}
+//	unsigned int VeiwDat(unsigned int x, unsigned int y) {
+//		return colDat[(x * roomWidth) + y];
+//	}
+//	~Room() {
+//		this->deleteRoom();
+//	}
+//
+//};
+struct ColBox {
+	olc::vf2d pos;
+	olc::vf2d size;
+	float TopCol(olc::vf2d &pos, olc::vf2d& size) {
+		if()
+		return (this->pos.y - pos.y) * 
+	}
+};
+struct Room {
+	std::vector<ColBox> colDat;
+
+
+};
 //
 //struct ColBox {
 //	unsigned short int x;
@@ -100,25 +146,3 @@ bool RectInRect(olc::vf2d& pos1, olc::vf2d& size1, olc::vf2d& pos2, olc::vf2d& s
 //		Pos->y += offset.y;
 //	}
 //};
-struct Room {
-	unsigned int* colDat;
-	unsigned int* gfxDat;
-	void deleteRoom() {
-		delete[] colDat;
-		delete[] gfxDat;
-	}
-	template <size_t w, size_t h>
-	void loadRoom(const unsigned int var[w][h]) {
-		colDat = new unsigned int[w * h];
-		for (unsigned int x = 0; x < w; x++)
-			for (unsigned int y = 0; y < h; y++)
-				colDat[(x * w) + y] = var[x][y];
-	}
-	unsigned int VeiwDat(unsigned int& x, unsigned int& y, unsigned int width) {
-		return colDat[(x * width) + y];
-	}
-	~Room() {
-		this->deleteRoom();
-	}
-
-};

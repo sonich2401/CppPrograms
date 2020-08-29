@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actors\anitV.h" />
+    <ClInclude Include="Actors\Player.h" />
     <ClInclude Include="Headers\Actors.h" />
     <ClInclude Include="Headers\Collision.h" />
     <ClInclude Include="Headers\Licence.h" />
