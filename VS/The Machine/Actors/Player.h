@@ -2,6 +2,7 @@
 #include "../Headers/olcPixelGameEngine.h"
 struct Player {
 	olc::vf2d pos;
+	olc::vf2d size;
 	struct stam {
 		float val;
 		float min;

@@ -1,3 +1,25 @@
 ﻿  Source.cpp
 C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Math\Rotate.h(4,15): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(156,24): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(162,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(164,32): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(173,24): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(178,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(180,23): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
   The Machine.vcxproj -> C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Debug\The Machine.exe

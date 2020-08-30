@@ -7,9 +7,9 @@
 #include <cstdlib>
 #include <vector>
 std::vector<AntiVirus> en;
-Room curRoom;
 Player player;
 olc::vf2d Screen = {0,0};
+ColBox curRoom = { 100,100,100,100 };
 bool gameover = 0;
 class Example : public olc::PixelGameEngine
 {
@@ -22,10 +22,10 @@ public:
 public:
 	bool OnUserCreate() override
 	{
-		curRoom.loadRoom<15, 15>(room::testRoom::colDat);
-		player.pos = { 100,100 };
+		player.pos = { 300,400 };
+		player.size = {10,10};
 		en.push_back(AntiVirus({10,10},this));
-		en.push_back(AntiVirus({200,200},this));
+		en.push_back(AntiVirus({250,200},this));
 		return true;
 	}
 
@@ -45,28 +45,32 @@ public:
 			baseSpeed = 100;
 		}
 		float speed = fElapsedTime * baseSpeed;
+		olc::vf2d spd = {0,0};
 		if (GetKey(olc::W).bHeld) {
-			player.pos.y -= speed;
+			spd.y -= speed;
 		}
 		if (GetKey(olc::S).bHeld) {
-			player.pos.y += speed;
+			spd.y += speed;
 		}
 		if (GetKey(olc::A).bHeld) {
-			player.pos.x -= speed;
+			spd.x -= speed;
 		}
 		if (GetKey(olc::D).bHeld) {
-			player.pos.x += speed;
+			spd.x += speed;
 		}
-		
-		this->FillCircle(player.pos, 10, olc::CYAN);
+		this->FillRect(player.pos, player.size, olc::CYAN);
 		olc::vi2d vSize = { 10,10 };
+		curRoom.Collision(&player.pos, &spd, player.size, this);
+		this->FillRect({ curRoom.x,curRoom.y }, { curRoom.w,curRoom.h },olc::YELLOW);
 		for (unsigned int i = 0; i < en.size(); i++) {
-			en[i].noticePlayer(player.pos, { 5,5 }, fElapsedTime);
-			if (RectInRect(en[i].pos, vSize, player.pos, { 20,20 }))
+			en[i].noticePlayer(player.pos, player.size, fElapsedTime);
+			if (RectInRect(en[i].pos, vSize, player.pos, player.size))
 				gameover = 1;
 			this->FillRect(en[i].pos, {10,10}, olc::WHITE);
 			en[i].pos += en[i].vel;
 		}
+		player.pos += spd;
+		this->DrawStringDecal({0,0},player.pos.str());
 		if (gameover) {
 			Clear(olc::Pixel(0, 0, 0));
 			this->DrawStringDecal({ 200,300 }, "Game Over", olc::WHITE,{5,5});

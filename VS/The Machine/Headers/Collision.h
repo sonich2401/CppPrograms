@@ -26,7 +26,7 @@ float GetDistance(olc::vf2d p1, olc::vf2d p2) {
 	return sqrt(((p2.x - p1.x) * (p2.x - p1.x)) + ((p2.y - p1.y) * (p2.y - p1.y)));
 }
 std::vector<olc::vf2d> getPoints(olc::vf2d& pos, olc::vf2d& size) {
-
+	return std::vector<olc::vf2d>() = { {pos},{pos.x,pos.y+size.y},{pos.x+size.x,pos.y},{pos+size} };
 }
 //struct Room {
 //	unsigned int* colDat;
@@ -52,97 +52,135 @@ std::vector<olc::vf2d> getPoints(olc::vf2d& pos, olc::vf2d& size) {
 //	}
 //
 //};
-struct ColBox {
-	olc::vf2d pos;
-	olc::vf2d size;
-	float TopCol(olc::vf2d &pos, olc::vf2d& size) {
-		if()
-		return (this->pos.y - pos.y) * 
-	}
-};
-struct Room {
-	std::vector<ColBox> colDat;
-
-
-};
-//
 //struct ColBox {
-//	unsigned short int x;
-//	unsigned short int y;
-//	unsigned short int w;
-//	unsigned short int h;
-//	float GetYInersection(olc::vf2d &pos, olc::vf2d &lastPos, float y ) {
-//		if (lastPos.x == pos.x)
-//			return lastPos.x;
-//		float s = getSlope<float>(pos.x, pos.y, lastPos.x, lastPos.y);
-//		float b = getB<float>(pos.x, pos.y,s);
-//		float x = (y - b) / s;
-//		return x;
+//	olc::vf2d pos;
+//	olc::vf2d size;
+//	ColBox(olc::vf2d _pos,olc::vf2d _size) {
+//		pos = _pos;
+//		size = _size;
 //	}
-//	float GetXInersection(olc::vf2d& pos, olc::vf2d& lastPos, float x) {
-//		float s = getSlope<float>(pos.x, pos.y, lastPos.x, lastPos.y);
-//		float b = getB<float>(pos.x, pos.y, s);
-//		float y = (s*x)+b;
-//		return y;
-//	}
-//	bool pointInRect(olc::vf2d &point,olc::vf2d &pos,olc::vf2d &size) {
-//		return (point.x >= pos.x) && (point.y >= pos.y) && (point.x <= pos.x + size.x) && (point.y <= pos.y + size.y);
-//	}
-//	bool pointInLine(olc::vf2d &point, olc::vf2d &p1,olc::vf2d &p2) {
-//		
-//	}
-//	bool RectInsideLine(olc::vf2d &pos,olc::vf2d &size,olc::vf2d &linePos,float lineSize) {
-//	
-//	}
-//	void Collision(olc::vf2d * Pos,olc::vf2d& vel,olc::vf2d size,olc::PixelGameEngine *pge) {
-//		olc::vf2d offset,nextPos,CurPos;
-//		nextPos = *Pos;
-//		CurPos = vel;
-//		pge->DrawStringDecal({ 0,0 }, "X: "+std::to_string(GetYInersection(nextPos,vel,this->y)), olc::BLACK);
-//		pge->DrawStringDecal({ 100,0 }, "Y: " + std::to_string(GetXInersection(nextPos, vel, this->x)), olc::BLACK);
-//		pge->DrawStringDecal({ 0,10 }, "X: " + std::to_string(GetYInersection(nextPos, vel, this->y+h)), olc::BLACK);
-//		pge->DrawStringDecal({ 100,10 }, "Y: " + std::to_string(GetXInersection(nextPos, vel, this->x+w)), olc::BLACK);
-//		if ((CurPos.y < y -size.y&& nextPos.y  > y-size.y)) {
-//			float xin = GetYInersection(nextPos, CurPos, this->y);
-//			std::cout << xin + size.x<<"\n";
-//			if ((xin - x >= 0 && xin - x <= w)|| (xin - x+size.x >= 0 && xin - x +size.x<= w)) {
-//				//std::cout << "\nINERECET_TOP: " << xin << "\n";
-//				//offset.y = y-nextPos.y-size.y;
-//				//offset.y = y - nextPos.y-size.y;
-//				Pos->y = y - size.y-1;
-//				//std::cout << "NextPos: " << nextPos.y << " Offset: " << y - nextPos.y - size.y<<"\n";
-//				//vel->y = 0;
+//	float TopCol(olc::vf2d& pos, olc::vf2d& size) {
+//		float offset=0;
+//		if (RectInRect(pos, size, this->pos, this->size)) {
+//			std::vector<olc::vf2d> points = { {pos.x,pos.y + size.y},{pos + size} };
+//			for (auto p : points) {
+//				if(pointInRect(p, this->pos, this->size))
+//					offset = (this->pos.y - pos.y - size.y) ;
 //			}
 //		}
-//		if (CurPos.y > y + h && nextPos.y < y+h) {
-//			float xin = GetYInersection(nextPos, CurPos, this->h + this->y);
-//			if (xin - x >= 0 && xin-x <= w) {
-//				std::cout << "\nINERECET_BOTTOM: " << xin << "\n";
-//				offset.y = (y+h) - nextPos.y;
-//				//vel->y = 0;
+//		return offset;
+//	}
+//	float BottomCol(olc::vf2d& pos, olc::vf2d& size) {
+//		float offset=0;
+//		if (RectInRect(pos, size, this->pos, this->size)) {
+//			std::vector<olc::vf2d> points = { {pos.x + size.x,pos.y},{pos} };
+//			for (auto p : points) {
+//				if (pointInRect(p, this->pos, this->size))
+//					offset = ((this->pos.y+this->size.y) - pos.y);
 //			}
 //		}
-//		if (CurPos.x < x && nextPos.x>x) {
-//			float yin = GetXInersection(nextPos, CurPos, this->y);
-//			if (yin - y >= 0 && yin <= h) {
-//				std::cout << "\nINERECET_LEFT: " << yin << "\n";
-//				offset.x = x - nextPos.x;
-//				//vel->x = 0;
+//		return offset;
+//	}
+//	float LeftCol(olc::vf2d& pos, olc::vf2d& size) {
+//		float offset=0;
+//		if (RectInRect(pos, size, this->pos, this->size)) {
+//			std::vector<olc::vf2d> points = { {pos.x+size.x,pos.y},{pos + size} };
+//			for (auto p : points) {
+//				if (pointInRect(p, this->pos, this->size))
+//					offset = (this->pos.x - pos.x - size.x);
 //			}
 //		}
-//		if (CurPos.x > x+w && nextPos.x < x+w) {
-//			float yin = GetXInersection(nextPos, CurPos, this->h + this->y);
-//			if (yin - y >= 0 && yin <= h) {
-//				std::cout << "\nINERECET_RIGHT: " << yin << "\n";
-//				offset.x = (x + w) - nextPos.x;
-//				//vel->x = 0;
+//		return offset;
+//	}
+//	float RightCol(olc::vf2d& pos, olc::vf2d& size) {
+//		float offset=0;
+//		if (RectInRect(pos, size, this->pos, this->size)) {
+//			std::vector<olc::vf2d> points = { {pos.x,pos.y},{pos.x,pos.y+size.y} };
+//			for (auto p : points) {
+//				if (pointInRect(p, this->pos, this->size))
+//					offset = ((this->pos.x + this->size.x) - pos.x);
 //			}
 //		}
-//		if (offset.x != 0 || offset.y != 0) {
-//			std::cout << offset.x << ":" << offset.y << "\n";
-//			//crash();
-//		}
-//		Pos->x += offset.x;
-//		Pos->y += offset.y;
+//		return offset;
+//	}
+//	olc::vf2d collide(olc::vf2d& pos, olc::vf2d& size) {
+//		olc::vf2d ret;
+//		return ret;
 //	}
 //};
+//struct Room {
+//	std::vector<ColBox> colDat;
+//};
+//
+struct ColBox {
+	unsigned short int x;
+	unsigned short int y;
+	unsigned short int w;
+	unsigned short int h;
+	float GetYInersection(olc::vf2d &pos, olc::vf2d &lastPos, float y ) {
+		if (lastPos.x == pos.x)
+			return lastPos.x;
+		float s = getSlope<float>(pos.x, pos.y, lastPos.x, lastPos.y);
+		float b = getB<float>(pos.x, pos.y,s);
+		float x = (y - b) / s;
+		return x;
+	}
+	float GetXInersection(olc::vf2d& pos, olc::vf2d& lastPos, float x) {
+		float s = getSlope<float>(pos.x, pos.y, lastPos.x, lastPos.y);
+		float b = getB<float>(pos.x, pos.y, s);
+		float y = (s*x)+b;
+		return y;
+	}
+	bool pointInRect(olc::vf2d &point,olc::vf2d &pos,olc::vf2d &size) {
+		return (point.x >= pos.x) && (point.y >= pos.y) && (point.x <= pos.x + size.x) && (point.y <= pos.y + size.y);
+	}
+	bool pointInLine(olc::vf2d &point, olc::vf2d &p1,olc::vf2d &p2) {
+		
+	}
+	bool RectInsideLine(olc::vf2d &pos,olc::vf2d &size,olc::vf2d &linePos,float lineSize) {
+	
+	}
+	void Collision(olc::vf2d * Pos,olc::vf2d * vel,olc::vf2d size,olc::PixelGameEngine *pge) {
+		olc::vf2d offset,nextPos,CurPos;
+		nextPos =  *vel + *Pos;
+		CurPos = *Pos;
+		bool tb=0;
+		//pge->DrawStringDecal({ 0,0 }, "X: "+std::to_string(GetYInersection(nextPos,vel,this->y)), olc::BLACK);
+		//pge->DrawStringDecal({ 100,0 }, "Y: " + std::to_string(GetXInersection(nextPos, vel, this->x)), olc::BLACK);
+		//pge->DrawStringDecal({ 0,10 }, "X: " + std::to_string(GetYInersection(nextPos, vel, this->y+h)), olc::BLACK);
+		//pge->DrawStringDecal({ 100,10 }, "Y: " + std::to_string(GetXInersection(nextPos, vel, this->x+w)), olc::BLACK);
+		if ((CurPos.y < y -size.y&& nextPos.y  > y-size.y)) {
+			float xin = GetYInersection(nextPos, CurPos, this->y);
+
+			if ((xin - x+size.x+size.x>= 0 && xin-x-size.x <= w)) {
+				Pos->y = y - size.y-0.01;
+				vel->y = 0;
+				tb = 1;
+			}
+		}
+		if (CurPos.y > y + h && nextPos.y < y+h) {
+			float xin = GetYInersection(nextPos, CurPos, this->h + this->y);
+			if (xin - x + size.x>= 0 && xin-x <= w) {
+				Pos->y = this->y + this->h + 0.01;
+				vel->y = 0;
+				tb = 1;
+			}
+		}
+		if (!tb) {
+			if (CurPos.x < x - size.x && nextPos.x>x - size.x) {
+				float yin = GetXInersection(nextPos, CurPos, this->y);
+				if (yin - y + size.y + size.y >= 0 && yin - y - size.y <= h) {
+					Pos->x = x - 0.01 - size.x;
+					vel->x = 0;
+				}
+			}
+			if (CurPos.x > x + w && nextPos.x < x + w) {
+				float yin = GetXInersection(nextPos, CurPos, this->h + this->y);
+				if (yin - y + size.y >= 0 && yin - y <= h) {
+					Pos->x = (x + w) + 0.01;
+					vel->x = 0;
+				}
+			}
+		}
+	}
+};

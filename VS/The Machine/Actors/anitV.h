@@ -29,8 +29,12 @@ struct AntiVirus {
 		float rad = 150;
 		olc::vf2d colBoxSize = {rad*2,rad*2};
 		olc::vf2d colBoxPos = { home.x - (colBoxSize.x / 2),home.y - (colBoxSize.y / 2) };
-		if (RectInRect(pos, PlayerSize, colBoxPos,colBoxSize )) {
+		if (RectInRect(pos, PlayerSize, colBoxPos, colBoxSize)) {
 			timer += fElapsedTime;
+			if (timer < 3)
+				pge->DrawStringDecal({ this->pos.x + 5,this->pos.y - 8-5 }, "?", olc::RED);
+			else
+				pge->DrawStringDecal({ this->pos.x + 5,this->pos.y - 8-5 }, "!", olc::RED);
 		}
 		else { 
 			if (timer > 0) {
