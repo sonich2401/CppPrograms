@@ -1,0 +1,2 @@
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Debug\The Machine.exe
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Debug\The Machine.pdb
