@@ -1,8 +1,13 @@
 #pragma once
 #include "../Headers/olcPixelGameEngine.h"
+#include "../Headers/Sprite.h"
 struct Player {
 	olc::vf2d pos;
 	olc::vf2d size;
+	pge::ren * spr;
+	~Player() {
+		delete spr;
+	}
 	struct stam {
 		float val;
 		float min;

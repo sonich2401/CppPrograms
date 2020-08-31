@@ -2,6 +2,7 @@
 #include "../Headers/olcPixelGameEngine.h"
 #include "../Math/Rotate.h"
 #include "../Headers/Collision.h"
+#include "../Headers/Sprite.h"
 char getSign(float num) {
 	return (-1 * (num < 0)) + (num >= 0);
 }
@@ -14,10 +15,14 @@ struct AntiVirus {
 		home = _pos;
 		pge = olc;
 	}
+	~AntiVirus() {
+		delete spr;
+	}
 	olc::PixelGameEngine* pge;
 	olc::vf2d pos;
 	olc::vf2d vel;
 	olc::vf2d home;
+	pge::ren * spr;
 	float timer = 0;
 	void gotoPoint(olc::vi2d point, float speed) {
 		const float baseSpeed = 100;

@@ -16,7 +16,7 @@ float getB(T px,T py,float s) {
 bool pointInRect(olc::vf2d point, olc::vf2d& pos, olc::vf2d& size) {
 	return (point.x >= pos.x) && (point.y >= pos.y) && (point.x <= pos.x + size.x) && (point.y <= pos.y + size.y);
 }
-bool RectInRect(olc::vf2d& pos1, olc::vf2d size1, olc::vf2d& pos2, olc::vf2d size2) {
+bool RectInRect(olc::vf2d pos1, olc::vf2d size1, olc::vf2d& pos2, olc::vf2d size2) {
 	return pointInRect(pos1, pos2, size2) || pointInRect(size1 + pos1, pos2, size2) || pointInRect({ pos1.x,pos1.y + size1.y }, pos2, size2) || pointInRect({pos1.x+size1.x,pos1.y}, pos2, size2);
 }
 bool LineInRect(olc::vf2d p1, olc::vf2d p2, olc::vf2d pos, olc::vf2d size) {
@@ -108,15 +108,12 @@ std::vector<olc::vf2d> getPoints(olc::vf2d& pos, olc::vf2d& size) {
 //		return ret;
 //	}
 //};
-//struct Room {
-//	std::vector<ColBox> colDat;
-//};
 //
 struct ColBox {
-	unsigned short int x;
-	unsigned short int y;
-	unsigned short int w;
-	unsigned short int h;
+	short int x;
+	 short int y;
+	 short int w;
+	short int h;
 	float GetYInersection(olc::vf2d &pos, olc::vf2d &lastPos, float y ) {
 		if (lastPos.x == pos.x)
 			return lastPos.x;
@@ -140,27 +137,30 @@ struct ColBox {
 	bool RectInsideLine(olc::vf2d &pos,olc::vf2d &size,olc::vf2d &linePos,float lineSize) {
 	
 	}
-	void Collision(olc::vf2d * Pos,olc::vf2d * vel,olc::vf2d size,olc::PixelGameEngine *pge) {
-		olc::vf2d offset,nextPos,CurPos;
+	void Collision(olc::vf2d* Pos, olc::vf2d* vel, olc::vf2d size, olc::vf2d offset,bool poff, olc::PixelGameEngine* pge) {
+		olc::vf2d beg, nextPos, CurPos,ret;
+		beg = {(float)this->x,(float)this->y};
+		x = x - offset.x;
+		y = y - offset.y;
+		std::cout << "X: " << x << " Y: " << y << "\n";
 		nextPos =  *vel + *Pos;
 		CurPos = *Pos;
 		bool tb=0;
-		//pge->DrawStringDecal({ 0,0 }, "X: "+std::to_string(GetYInersection(nextPos,vel,this->y)), olc::BLACK);
-		//pge->DrawStringDecal({ 100,0 }, "Y: " + std::to_string(GetXInersection(nextPos, vel, this->x)), olc::BLACK);
-		//pge->DrawStringDecal({ 0,10 }, "X: " + std::to_string(GetYInersection(nextPos, vel, this->y+h)), olc::BLACK);
-		//pge->DrawStringDecal({ 100,10 }, "Y: " + std::to_string(GetXInersection(nextPos, vel, this->x+w)), olc::BLACK);
 		if ((CurPos.y < y -size.y&& nextPos.y  > y-size.y)) {
-			float xin = GetYInersection(nextPos, CurPos, this->y);
-
-			if ((xin - x+size.x+size.x>= 0 && xin-x-size.x <= w)) {
-				Pos->y = y - size.y-0.01;
+			//float xin = GetYInersection(nextPos, CurPos, this->y);
+			//std::cout << "TOP\n";
+			if ((nextPos.x - x+size.x>= 0 && nextPos.x-x <= w)) {
+				if(!poff)
+					Pos->y = y - size.y-0.01;
 				vel->y = 0;
 				tb = 1;
 			}
 		}
 		if (CurPos.y > y + h && nextPos.y < y+h) {
-			float xin = GetYInersection(nextPos, CurPos, this->h + this->y);
-			if (xin - x + size.x>= 0 && xin-x <= w) {
+			//float xin = GetYInersection(nextPos, CurPos, this->h + this->y);
+			//std::cout << "BOTTOM\n";
+			if (nextPos.x - x + size.x>= 0 && nextPos.x <= w + x) {
+				if (!poff)
 				Pos->y = this->y + this->h + 0.01;
 				vel->y = 0;
 				tb = 1;
@@ -168,19 +168,25 @@ struct ColBox {
 		}
 		if (!tb) {
 			if (CurPos.x < x - size.x && nextPos.x>x - size.x) {
-				float yin = GetXInersection(nextPos, CurPos, this->y);
-				if (yin - y + size.y + size.y >= 0 && yin - y - size.y <= h) {
-					Pos->x = x - 0.01 - size.x;
+				//float yin = GetXInersection(nextPos, CurPos, this->y+1);
+				//std::cout << "LEFT\n";
+				if (nextPos.y+size.y>= y && nextPos.y <= y+h) {
+					if (!poff)
+					Pos->x = x - 0.21 - size.x;
 					vel->x = 0;
 				}
 			}
 			if (CurPos.x > x + w && nextPos.x < x + w) {
-				float yin = GetXInersection(nextPos, CurPos, this->h + this->y);
-				if (yin - y + size.y >= 0 && yin - y <= h) {
+				//float yin = GetXInersection(nextPos, CurPos, this->h + this->y);
+				//std::cout << "RIGHT\n";
+				if (nextPos.y + size.y >= y && nextPos.y <= y + h){
+					if (!poff)
 					Pos->x = (x + w) + 0.01;
 					vel->x = 0;
 				}
 			}
 		}
+		x = x + offset.x;
+		y = y + offset.y;
 	}
 };

@@ -4,35 +4,42 @@
 #include "Headers/Actors.h"
 #include "Headers/Collision.h"
 #include "rooms/Rooms.h"
+#include "Headers/Sprite.h"
+#include "Headers/RoomLoading.h"
 #include <cstdlib>
 #include <vector>
 std::vector<AntiVirus> en;
 Player player;
 olc::vf2d Screen = {0,0};
-ColBox curRoom = { 100,100,100,100 };
+Room curRoom;
+pge::ren* antiV;
 bool gameover = 0;
 class Example : public olc::PixelGameEngine
 {
 public:
 	Example()
 	{
-		sAppName = "Tron";
+		sAppName = "Evil Computer";
 	}
 
 public:
 	bool OnUserCreate() override
 	{
-		player.pos = { 300,400 };
-		player.size = {10,10};
-		en.push_back(AntiVirus({10,10},this));
-		en.push_back(AntiVirus({250,200},this));
+		player.pos = { 300,404 };
+		player.size = {20,20};
+		curRoom.LoadRoom(room::testRoom::colDat,this);
+		player.spr = new pge::ren("./pic/Player.png");
+		antiV = new pge::ren("./pic/aniV.png");
+		en.push_back(AntiVirus({30,30},this));
+		en.push_back(AntiVirus({250,500},this));
 		return true;
 	}
 
 	bool OnUserUpdate(float fElapsedTime) override
 	{
-		Clear(olc::Pixel(0, 0, 0));
 		int baseSpeed = 70;
+		this->DrawStringDecal({ 0,0 }, Screen.str());
+		this->DrawStringDecal({ 0,10 }, player.pos.str());
 		if (GetKey(olc::CTRL).bHeld) {
 			//player.stam.UseStamina();
 			//if (!player.stam.BelowTreshold()) {
@@ -58,21 +65,28 @@ public:
 		if (GetKey(olc::D).bHeld) {
 			spd.x += speed;
 		}
-		this->FillRect(player.pos, player.size, olc::CYAN);
+		if (GetKey(olc::ESCAPE).bPressed) {
+			gameover = 0;
+			player.pos = { 200,200 };
+		}
+		this->DrawDecal(player.pos, player.spr->dcl);
 		olc::vi2d vSize = { 10,10 };
-		curRoom.Collision(&player.pos, &spd, player.size, this);
-		this->FillRect({ curRoom.x,curRoom.y }, { curRoom.w,curRoom.h },olc::YELLOW);
+		curRoom.CheckCollsion(&player.pos, &spd, player.size,Screen,1, this);
 		for (unsigned int i = 0; i < en.size(); i++) {
 			en[i].noticePlayer(player.pos, player.size, fElapsedTime);
-			if (RectInRect(en[i].pos, vSize, player.pos, player.size))
+			if (RectInRect(en[i].pos-Screen, vSize, player.pos, player.size))
 				gameover = 1;
-			this->FillRect(en[i].pos, {10,10}, olc::WHITE);
+			this->DrawDecal(en[i].pos-Screen, antiV->dcl);
+			curRoom.CheckCollsion(&en[i].pos, &en[i].vel, vSize, Screen,0,this);
 			en[i].pos += en[i].vel;
 		}
-		player.pos += spd;
-		this->DrawStringDecal({0,0},player.pos.str());
+		for (unsigned int i = 0; i < curRoom.colDat.size(); i++) {
+			this->DrawDecal({ (float)curRoom.colDat[i].x-Screen.x,(float)curRoom.colDat[i].y-Screen.y }, curRoom.gfxDat[i]->dcl);
+		}
+		//player.pos += spd;
+		Screen += spd;
 		if (gameover) {
-			Clear(olc::Pixel(0, 0, 0));
+			//Clear(olc::Pixel(0, 0, 0));
 			this->DrawStringDecal({ 200,300 }, "Game Over", olc::WHITE,{5,5});
 		}
 		return true;

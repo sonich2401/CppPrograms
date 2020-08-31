@@ -1,0 +1,58 @@
+﻿  Source.cpp
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Math\Rotate.h(4,15): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(143,9): warning C4244: '=': conversion from 'T' to 'short', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(144,9): warning C4244: '=': conversion from 'T' to 'short', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(154,25): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(164,32): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(175,24): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(184,23): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(189,9): warning C4244: '=': conversion from 'T' to 'short', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(190,9): warning C4244: '=': conversion from 'T' to 'short', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Sprite.h(14,41): warning C4244: 'argument': conversion from 'T' to 'int32_t', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Sprite.h(14,32): warning C4244: 'argument': conversion from 'T' to 'int32_t', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Generating code
+  1 of 1263 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  The Machine.vcxproj -> C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Release\The Machine.exe
