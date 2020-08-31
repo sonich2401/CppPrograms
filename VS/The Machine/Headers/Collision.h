@@ -137,12 +137,9 @@ struct ColBox {
 	bool RectInsideLine(olc::vf2d &pos,olc::vf2d &size,olc::vf2d &linePos,float lineSize) {
 	
 	}
-	void Collision(olc::vf2d* Pos, olc::vf2d* vel, olc::vf2d size, olc::vf2d offset,bool poff, olc::PixelGameEngine* pge) {
+	void Collision(olc::vf2d* Pos, olc::vf2d* vel, olc::vf2d size, olc::PixelGameEngine* pge) {
 		olc::vf2d beg, nextPos, CurPos,ret;
-		beg = {(float)this->x,(float)this->y};
-		x = x - offset.x;
-		y = y - offset.y;
-		std::cout << "X: " << x << " Y: " << y << "\n";
+		//std::cout << "X: " << x << " Y: " << y << "\n";
 		nextPos =  *vel + *Pos;
 		CurPos = *Pos;
 		bool tb=0;
@@ -150,7 +147,6 @@ struct ColBox {
 			//float xin = GetYInersection(nextPos, CurPos, this->y);
 			//std::cout << "TOP\n";
 			if ((nextPos.x - x+size.x>= 0 && nextPos.x-x <= w)) {
-				if(!poff)
 					Pos->y = y - size.y-0.01;
 				vel->y = 0;
 				tb = 1;
@@ -160,7 +156,6 @@ struct ColBox {
 			//float xin = GetYInersection(nextPos, CurPos, this->h + this->y);
 			//std::cout << "BOTTOM\n";
 			if (nextPos.x - x + size.x>= 0 && nextPos.x <= w + x) {
-				if (!poff)
 				Pos->y = this->y + this->h + 0.01;
 				vel->y = 0;
 				tb = 1;
@@ -171,22 +166,19 @@ struct ColBox {
 				//float yin = GetXInersection(nextPos, CurPos, this->y+1);
 				//std::cout << "LEFT\n";
 				if (nextPos.y+size.y>= y && nextPos.y <= y+h) {
-					if (!poff)
-					Pos->x = x - 0.21 - size.x;
+					Pos->x = x - 0.01 - size.x;
 					vel->x = 0;
 				}
 			}
+			//std::cout << CurPos.x << " NP: " << nextPos.x << "\n";
 			if (CurPos.x > x + w && nextPos.x < x + w) {
 				//float yin = GetXInersection(nextPos, CurPos, this->h + this->y);
 				//std::cout << "RIGHT\n";
 				if (nextPos.y + size.y >= y && nextPos.y <= y + h){
-					if (!poff)
 					Pos->x = (x + w) + 0.01;
 					vel->x = 0;
 				}
 			}
 		}
-		x = x + offset.x;
-		y = y + offset.y;
 	}
 };

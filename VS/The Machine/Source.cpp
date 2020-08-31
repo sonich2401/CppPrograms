@@ -25,13 +25,13 @@ public:
 public:
 	bool OnUserCreate() override
 	{
-		player.pos = { 300,404 };
+		player.pos = { 300-20,300-20 };
 		player.size = {20,20};
 		curRoom.LoadRoom(room::testRoom::colDat,this);
 		player.spr = new pge::ren("./pic/Player.png");
 		antiV = new pge::ren("./pic/aniV.png");
-		en.push_back(AntiVirus({30,30},this));
-		en.push_back(AntiVirus({250,500},this));
+		en.push_back(AntiVirus({600,30},this));
+		en.push_back(AntiVirus({250,550},this));
 		return true;
 	}
 
@@ -67,17 +67,18 @@ public:
 		}
 		if (GetKey(olc::ESCAPE).bPressed) {
 			gameover = 0;
-			player.pos = { 200,200 };
+			//player.pos = { 300-20,300-20 };
 		}
-		this->DrawDecal(player.pos, player.spr->dcl);
+		this->DrawDecal(player.pos - Screen, player.spr->dcl);
 		olc::vi2d vSize = { 10,10 };
-		curRoom.CheckCollsion(&player.pos, &spd, player.size,Screen,1, this);
+
+		curRoom.CheckCollsion(&player.pos, &spd, player.size, this);
 		for (unsigned int i = 0; i < en.size(); i++) {
-			en[i].noticePlayer(player.pos, player.size, fElapsedTime);
-			if (RectInRect(en[i].pos-Screen, vSize, player.pos, player.size))
+			en[i].noticePlayer(player.pos, player.size,Screen, fElapsedTime);
+			if (RectInRect(en[i].pos, vSize, player.pos, player.size))
 				gameover = 1;
 			this->DrawDecal(en[i].pos-Screen, antiV->dcl);
-			curRoom.CheckCollsion(&en[i].pos, &en[i].vel, vSize, Screen,0,this);
+			curRoom.CheckCollsion(&en[i].pos, &en[i].vel, vSize,this);
 			en[i].pos += en[i].vel;
 		}
 		for (unsigned int i = 0; i < curRoom.colDat.size(); i++) {
@@ -85,6 +86,7 @@ public:
 		}
 		//player.pos += spd;
 		Screen += spd;
+		player.pos += spd;
 		if (gameover) {
 			//Clear(olc::Pixel(0, 0, 0));
 			this->DrawStringDecal({ 200,300 }, "Game Over", olc::WHITE,{5,5});

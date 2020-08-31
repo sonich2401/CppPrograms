@@ -19,11 +19,11 @@ struct Room {
 		}
 		
 	}
-	void CheckCollsion(olc::vf2d* Pos, olc::vf2d* vel, olc::vf2d size, olc::vf2d offset,bool poff, olc::PixelGameEngine* pge) {
+	void CheckCollsion(olc::vf2d* Pos, olc::vf2d* vel, olc::vf2d size, olc::PixelGameEngine* pge) {
 		
 		for (auto rect : colDat) {
 			//olc::vf2d thisRect[2] = { {(float)rect.x - offset.x,(float)rect.y-offset.y}, {(float)rect.w,(float)rect.h} };
-			rect.Collision(Pos, vel, size,offset, poff,pge);
+			rect.Collision(Pos, vel, size,pge);
 			//pge->FillRect({ rect.x,rect.y }, { rect.w,rect.h }, olc::YELLOW);
 		}
 
