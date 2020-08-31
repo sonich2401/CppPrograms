@@ -6,8 +6,15 @@ namespace pge {
 	struct ren {
 		olc::Decal* dcl;
 		olc::Sprite* spr;
-		ren(std::string &path) {
+		ren(std::string path) {
 			spr = new olc::Sprite(path);
+			dcl = new olc::Decal(spr);
+		}
+		ren(olc::vf2d size, olc::PixelGameEngine * pge) {
+			spr = new olc::Sprite(size.x+1,size.y+1);
+			pge->SetDrawTarget(spr);
+			pge->DrawRect({ 0,0 }, size);
+			pge->SetDrawTarget(nullptr);
 			dcl = new olc::Decal(spr);
 		}
 		~ren() {

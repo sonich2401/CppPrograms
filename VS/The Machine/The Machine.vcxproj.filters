@@ -53,5 +53,16 @@
     <ClInclude Include="Actors\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Headers\RoomLoading.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="pic\Player.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="pic\aniV.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
