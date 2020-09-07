@@ -11,9 +11,10 @@ namespace pge {
 			dcl = new olc::Decal(spr);
 		}
 		ren(olc::vf2d size, olc::PixelGameEngine * pge) {
-			spr = new olc::Sprite(size.x+1,size.y+1);
+			size += {1, 1};
+			spr = new olc::Sprite(size.x,size.y);
 			pge->SetDrawTarget(spr);
-			pge->DrawRect({ 0,0 }, size);
+			pge->FillRect({ 0,0 }, size);
 			pge->SetDrawTarget(nullptr);
 			dcl = new olc::Decal(spr);
 		}

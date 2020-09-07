@@ -4,6 +4,7 @@
 struct Player {
 	olc::vf2d pos;
 	olc::vf2d size;
+	char health;
 	pge::ren * spr;
 	~Player() {
 		delete spr;

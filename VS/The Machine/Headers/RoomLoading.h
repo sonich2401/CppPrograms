@@ -5,8 +5,11 @@
 struct Room {
 	std::vector<ColBox> colDat;
 	std::vector<pge::ren*> gfxDat = {nullptr};
-	void LoadRoom(const std::vector<ColBox> input,olc::PixelGameEngine * pge) {
+	void LoadRoom(const std::vector<ColBox> input, olc::PixelGameEngine* pge) {
 		colDat = input;
+		//for (auto pos : _1) {
+		//	e1.push_back(AntiVirus(pos,pge));
+		//}
 		for (auto ptr : gfxDat)
 			if (ptr != nullptr)
 				delete ptr;

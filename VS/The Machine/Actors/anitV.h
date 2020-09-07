@@ -3,11 +3,12 @@
 #include "../Math/Rotate.h"
 #include "../Headers/Collision.h"
 #include "../Headers/Sprite.h"
+#include "ActorTemplate.h"
 char getSign(float num) {
 	return (-1 * (num < 0)) + (num >= 0);
 }
 
-struct AntiVirus {
+struct AntiVirus : public actor{
 	AntiVirus() {
 	}
 	AntiVirus(olc::vf2d _pos,olc::PixelGameEngine * olc) {
@@ -18,11 +19,12 @@ struct AntiVirus {
 	~AntiVirus() {
 		delete spr;
 	}
-	olc::PixelGameEngine* pge;
 	olc::vf2d pos;
 	olc::vf2d vel;
 	olc::vf2d home;
 	pge::ren * spr;
+	int type;
+	olc::PixelGameEngine* pge;
 	float timer = 0;
 	void gotoPoint(olc::vi2d point, float speed) {
 		const float baseSpeed = 100;
