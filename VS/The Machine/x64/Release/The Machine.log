@@ -1,0 +1,64 @@
+﻿  Source.cpp
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Math\Rotate.h(4,22): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(151,32): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(160,39): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(170,31): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(179,30): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Sprite.h(17,31): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              T=int32_t
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Sprite.h(17,23): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              T=int32_t
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Sprite.h(19,17): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              T=int32_t
+          ]
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Sprite.h(22,17): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              T=int32_t
+          ]
+  Generating code
+  52 of 1300 functions ( 4.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    77 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  The Machine.vcxproj -> C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\x64\Release\The Machine.exe

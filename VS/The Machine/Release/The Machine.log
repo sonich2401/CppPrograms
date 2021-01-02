@@ -1,38 +1,69 @@
 ﻿  Source.cpp
 C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Math\Rotate.h(4,15): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+<<<<<<< Updated upstream
 C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(150,25): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+=======
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(151,25): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+>>>>>>> Stashed changes
           with
           [
               T=float
           ]
+<<<<<<< Updated upstream
 C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(159,32): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+=======
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(160,32): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+>>>>>>> Stashed changes
           with
           [
               T=float
           ]
+<<<<<<< Updated upstream
 C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(169,24): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+=======
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(170,24): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+>>>>>>> Stashed changes
           with
           [
               T=float
           ]
+<<<<<<< Updated upstream
 C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(178,23): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+=======
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Collision.h(179,23): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+>>>>>>> Stashed changes
           with
           [
               T=float
           ]
+<<<<<<< Updated upstream
 C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Sprite.h(15,37): warning C4244: 'argument': conversion from 'T' to 'int32_t', possible loss of data
+=======
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Sprite.h(17,37): warning C4244: 'argument': conversion from 'T' to 'int32_t', possible loss of data
+>>>>>>> Stashed changes
           with
           [
               T=float
           ]
+<<<<<<< Updated upstream
 C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Sprite.h(15,30): warning C4244: 'argument': conversion from 'T' to 'int32_t', possible loss of data
+=======
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Headers\Sprite.h(17,30): warning C4244: 'argument': conversion from 'T' to 'int32_t', possible loss of data
+>>>>>>> Stashed changes
           with
           [
               T=float
           ]
   Generating code
+<<<<<<< Updated upstream
   Finished generating code
   1 of 1287 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
+=======
+  51 of 1304 functions ( 3.9%) were compiled, the rest were copied from previous compilation.
+    3 functions were new in current compilation
+    26 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+>>>>>>> Stashed changes
   The Machine.vcxproj -> C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Release\The Machine.exe

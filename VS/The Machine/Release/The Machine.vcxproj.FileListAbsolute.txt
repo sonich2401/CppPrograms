@@ -1,1 +1,1 @@
-C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\Release\The Machine.exe
+C:\Users\mener\OneDrive\Documents\GitHub\CppPrograms\VS\The Machine\x64\Release\The Machine.exe
